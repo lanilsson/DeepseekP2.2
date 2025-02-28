@@ -1,0 +1,6 @@
+jordan.ai.search@gmail.com
+Jordan417181ai
+
+
+
+Now create a backend where the user can controll we web pages and terminals and recive website infromation, availible buttons and text fields. The user should communicate through function commands con gain full controll over the entire webpage. After every command the script should return the web information and terminal response.
