@@ -154,7 +154,9 @@ This will create a file called `selenium_qt_browser_transfer.zip` that you can t
 
 If you want to push the project to GitHub:
 
-### On macOS/Linux:
+### Standard Push (May Miss Some Files)
+
+#### On macOS/Linux:
 
 ```bash
 # Make the script executable
@@ -164,11 +166,30 @@ chmod +x push_to_github.sh
 ./push_to_github.sh
 ```
 
-### On Windows:
+#### On Windows:
 
 ```batch
 # Run the script
 push_to_github.bat
+```
+
+### Complete Push (Ensures All Files Are Included)
+
+#### On macOS/Linux:
+
+```bash
+# Make the script executable
+chmod +x add_all_files.sh
+
+# Run the script
+./add_all_files.sh
+```
+
+#### On Windows:
+
+```batch
+# Run the script
+add_all_files.bat
 ```
 
 This will push the project to the GitHub repository at https://github.com/lanilsson/DeepseekP2.2.git.
