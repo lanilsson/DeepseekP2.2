@@ -33,3 +33,9 @@ msedgedriver*
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Model files and cache
+DeepSeek_Models/models/*
+DeepSeek_Models/history/*
+DeepSeek_Models/workspace/*
+~/.cache/r1-1776/

@@ -12,23 +12,59 @@ A Python application that provides a PyQt6-based web browser with multiple tabs 
 - Direct programmatic control for automation
 - Command-line interface for interactive control
 - Persistent cookies, cache, and session data across restarts
+- Integration with AI models (R1-1776 and DeepSeek)
 
-## Installation
+## Transferring to a New Machine
 
 ### Prerequisites
 
 - Python 3.8 or higher
 - Chrome, Firefox, or Edge browser installed
+- Git (for cloning the repository)
 
-### Setup
+### Option 1: Quick Setup (Recommended)
 
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/selenium-qt-browser.git
-   cd selenium-qt-browser
+   git clone https://github.com/lanilsson/DeepseekP2.2.git
+   cd DeepseekP2.2
    ```
 
-2. Create a virtual environment (recommended):
+2. Run the setup script:
+   - On macOS/Linux:
+     ```
+     chmod +x setup.sh
+     ./setup.sh
+     ```
+   - On Windows:
+     ```
+     setup.bat
+     ```
+
+3. Activate the virtual environment:
+   - On macOS/Linux:
+     ```
+     source venv/bin/activate
+     ```
+   - On Windows:
+     ```
+     venv\Scripts\activate
+     ```
+
+4. Run the application:
+   ```
+   python run.py
+   ```
+
+### Option 2: Manual Setup
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/lanilsson/DeepseekP2.2.git
+   cd DeepseekP2.2
+   ```
+
+2. Create a virtual environment:
    ```
    python -m venv venv
    ```
@@ -46,6 +82,18 @@ A Python application that provides a PyQt6-based web browser with multiple tabs 
 4. Install the required dependencies:
    ```
    pip install -r requirements.txt
+   ```
+
+5. Create necessary directories:
+   ```
+   mkdir -p DeepSeek_Models/models
+   mkdir -p DeepSeek_Models/history
+   mkdir -p DeepSeek_Models/workspace
+   ```
+
+6. Install the DeepSeek_Models package:
+   ```
+   pip install -e DeepSeek_Models
    ```
 
 ## Usage
@@ -168,6 +216,7 @@ The browser includes a command-line interface for interactive control:
    - `pwd` - Get the current working directory of the terminal
    - `chat <message>` - Send a message to the AI chat
    - `exit` or `quit` - Exit the CLI
+
 ## AI Models
 
 ### R1-1776 Model
@@ -239,6 +288,30 @@ The application stores its configuration in a `config.json` file in the user's h
 - Default homepage
 - User preferences
 
+## Project Structure
+
+```
+DeepseekP2.2/
+├── selenium_qt_browser/     # Main browser application
+├── DeepSeek_Models/         # DeepSeek model integration
+│   ├── models/              # Directory for model files
+│   ├── history/             # Directory for chat history
+│   └── workspace/           # Directory for workspace files
+├── examples/                # Example scripts
+├── run.py                   # Main entry point
+├── run_r1_1776.py           # R1-1776 model runner
+├── run_r1_1776_launcher.py  # R1-1776 model launcher
+├── run_deepseek.py          # DeepSeek models runner
+├── requirements.txt         # Python dependencies
+├── setup.sh                 # Setup script for macOS/Linux
+├── setup.bat                # Setup script for Windows
+├── create_archive.sh        # Archive creation script for macOS/Linux
+├── create_archive.bat       # Archive creation script for Windows
+├── push_to_github.sh        # GitHub push script for macOS/Linux
+├── push_to_github.bat       # GitHub push script for Windows
+├── SETUP_COMMANDS.md        # Detailed setup commands
+└── README.md                # This file
+```
 
 ## License
 
