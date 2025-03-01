@@ -11,6 +11,27 @@ NC='\033[0m' # No Color
 echo -e "${GREEN}Selenium Qt Browser with AI Models Setup${NC}"
 echo "=============================================="
 
+# Check if running on Linux and install system dependencies if needed
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo -e "${YELLOW}Detected Linux operating system.${NC}"
+    echo "Checking for system dependencies..."
+    
+    # Check if the install_system_dependencies.sh script exists
+    if [ -f "install_system_dependencies.sh" ]; then
+        echo "Running system dependencies installation script..."
+        chmod +x install_system_dependencies.sh
+        ./install_system_dependencies.sh || {
+            echo -e "${YELLOW}Warning: System dependencies installation may not have completed successfully.${NC}"
+            echo "You may need to install the required system dependencies manually."
+            echo "See install_system_dependencies.sh for details."
+        }
+    else
+        echo -e "${YELLOW}Warning: System dependencies installation script not found.${NC}"
+        echo "You may need to install the required system dependencies manually."
+        echo "Required packages include: libgl1-mesa-glx, libegl1-mesa, and other Qt dependencies."
+    fi
+fi
+
 # Check if Python is installed
 if ! command -v python3 &> /dev/null; then
     echo -e "${RED}Error: Python 3 is not installed.${NC}"

@@ -41,6 +41,7 @@ cp setup.bat "$TEMP_DIR/"
 cp README.md "$TEMP_DIR/"
 cp LICENSE "$TEMP_DIR/"
 cp .gitignore "$TEMP_DIR/"
+cp SETUP_COMMANDS.md "$TEMP_DIR/"
 
 # Runner scripts
 cp run.py "$TEMP_DIR/"
@@ -48,7 +49,23 @@ cp run_r1_1776.py "$TEMP_DIR/"
 cp run_r1_1776_launcher.py "$TEMP_DIR/"
 cp run_deepseek.py "$TEMP_DIR/"
 cp r1_1776_utils.py "$TEMP_DIR/"
+
+# Utility scripts
 cp create_archive.sh "$TEMP_DIR/"
+cp create_archive.bat "$TEMP_DIR/" 2>/dev/null || echo "create_archive.bat not found, skipping..."
+cp push_to_github.sh "$TEMP_DIR/"
+cp push_to_github.bat "$TEMP_DIR/" 2>/dev/null || echo "push_to_github.bat not found, skipping..."
+cp add_all_files.sh "$TEMP_DIR/"
+cp add_all_files.bat "$TEMP_DIR/" 2>/dev/null || echo "add_all_files.bat not found, skipping..."
+cp install_system_dependencies.sh "$TEMP_DIR/"
+
+# Create empty directories with .gitkeep files
+mkdir -p "$TEMP_DIR/DeepSeek_Models/models"
+mkdir -p "$TEMP_DIR/DeepSeek_Models/history"
+mkdir -p "$TEMP_DIR/DeepSeek_Models/workspace"
+cp DeepSeek_Models/models/.gitkeep "$TEMP_DIR/DeepSeek_Models/models/" 2>/dev/null || touch "$TEMP_DIR/DeepSeek_Models/models/.gitkeep"
+cp DeepSeek_Models/history/.gitkeep "$TEMP_DIR/DeepSeek_Models/history/" 2>/dev/null || touch "$TEMP_DIR/DeepSeek_Models/history/.gitkeep"
+cp DeepSeek_Models/workspace/.gitkeep "$TEMP_DIR/DeepSeek_Models/workspace/" 2>/dev/null || touch "$TEMP_DIR/DeepSeek_Models/workspace/.gitkeep"
 
 # Create the zip archive
 echo "Creating zip archive..."

@@ -48,10 +48,14 @@ git add SETUP_COMMANDS.md
 
 # Setup and utility scripts
 git add setup.sh
+git add setup.bat
 git add create_archive.sh
+git add create_archive.bat
 git add push_to_github.sh
 git add push_to_github.bat
 git add add_all_files.sh
+git add add_all_files.bat
+git add install_system_dependencies.sh
 
 # DeepSeek_Models directory
 git add DeepSeek_Models/*.py

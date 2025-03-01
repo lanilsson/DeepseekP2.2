@@ -21,6 +21,7 @@ A Python application that provides a PyQt6-based web browser with multiple tabs 
 - Python 3.8 or higher
 - Chrome, Firefox, or Edge browser installed
 - Git (for cloning the repository)
+- On Linux: OpenGL and Qt system dependencies (installed automatically by setup.sh)
 
 ### Option 1: Quick Setup (Recommended)
 
@@ -64,12 +65,18 @@ A Python application that provides a PyQt6-based web browser with multiple tabs 
    cd DeepseekP2.2
    ```
 
-2. Create a virtual environment:
+2. (Linux only) Install system dependencies:
+   ```
+   chmod +x install_system_dependencies.sh
+   ./install_system_dependencies.sh
+   ```
+
+3. Create a virtual environment:
    ```
    python -m venv venv
    ```
 
-3. Activate the virtual environment:
+4. Activate the virtual environment:
    - On Windows:
      ```
      venv\Scripts\activate
@@ -79,22 +86,33 @@ A Python application that provides a PyQt6-based web browser with multiple tabs 
      source venv/bin/activate
      ```
 
-4. Install the required dependencies:
+5. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-5. Create necessary directories:
+6. Create necessary directories:
    ```
    mkdir -p DeepSeek_Models/models
    mkdir -p DeepSeek_Models/history
    mkdir -p DeepSeek_Models/workspace
    ```
 
-6. Install the DeepSeek_Models package:
+7. Install the DeepSeek_Models package:
    ```
    pip install -e DeepSeek_Models
    ```
+
+## Linux System Dependencies
+
+If you encounter an error like `ImportError: libGL.so.1: cannot open shared object file: No such file or directory` when running the application on Linux, you need to install the required system dependencies:
+
+```bash
+chmod +x install_system_dependencies.sh
+./install_system_dependencies.sh
+```
+
+This script will automatically detect your Linux distribution and install the necessary packages.
 
 ## Usage
 
@@ -305,13 +323,32 @@ DeepseekP2.2/
 ├── requirements.txt         # Python dependencies
 ├── setup.sh                 # Setup script for macOS/Linux
 ├── setup.bat                # Setup script for Windows
+├── install_system_dependencies.sh # System dependencies installer for Linux
 ├── create_archive.sh        # Archive creation script for macOS/Linux
 ├── create_archive.bat       # Archive creation script for Windows
 ├── push_to_github.sh        # GitHub push script for macOS/Linux
 ├── push_to_github.bat       # GitHub push script for Windows
+├── add_all_files.sh         # Complete GitHub push script for macOS/Linux
+├── add_all_files.bat        # Complete GitHub push script for Windows
 ├── SETUP_COMMANDS.md        # Detailed setup commands
 └── README.md                # This file
 ```
+
+## GitHub Repository Management
+
+### Standard Push (May Miss Some Files)
+
+- On macOS/Linux: `./push_to_github.sh`
+- On Windows: `push_to_github.bat`
+
+### Complete Push (Ensures All Files Are Included)
+
+If you encounter issues with missing files in the GitHub repository, use these scripts to ensure all important files are included:
+
+- On macOS/Linux: `./add_all_files.sh`
+- On Windows: `add_all_files.bat`
+
+These scripts explicitly add all important files to the repository, ensuring nothing is missed.
 
 ## License
 
