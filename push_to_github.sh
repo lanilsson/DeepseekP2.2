@@ -36,9 +36,15 @@ git add .
 echo "Committing changes..."
 git commit -m "Prepare app for transfer to new machine"
 
+# Get the current branch name
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+if [ -z "$BRANCH_NAME" ]; then
+    BRANCH_NAME="main"  # Default to main if branch name can't be determined
+fi
+
 # Push to GitHub
-echo "Pushing to GitHub..."
-git push -u origin master
+echo "Pushing to GitHub using branch: $BRANCH_NAME"
+git push -u origin "$BRANCH_NAME"
 
 echo -e "${GREEN}Successfully pushed to GitHub!${NC}"
 echo "Repository URL: https://github.com/lanilsson/DeepseekP2.2.git"
